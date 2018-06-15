@@ -33,7 +33,8 @@ public class HomeFragment extends Fragment {
 
 
     private void setupViewPager(View v) {
-        SectionPageAdapter adapter = new SectionPageAdapter(getActivity().getSupportFragmentManager());
+        //change to get child fragment manager
+        SectionPageAdapter adapter = new SectionPageAdapter(getChildFragmentManager());
 
 //        Log.e(TAG, "Support manager = " + getActivity().getSupportFragmentManager());
         adapter.addFragment(new ExploredFragment());

@@ -63,7 +63,6 @@ public class MainActivity extends AppCompatActivity implements FeaturedFragment.
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, fragment);
-
         fragmentTransaction.commit();
 
     }
