@@ -5,14 +5,13 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 
 /**
- * A simple {@link Fragment} subclass.
+ * Home Fragment that include Explor
  */
 public class HomeFragment extends Fragment {
 
@@ -39,11 +38,11 @@ public class HomeFragment extends Fragment {
 //        Log.e(TAG, "Support manager = " + getActivity().getSupportFragmentManager());
         adapter.addFragment(new ExploredFragment());
         adapter.addFragment(new FeaturedFragment());
-        ViewPager viewPager = v.findViewById(R.id.viewpager_layout);
+        ViewPager viewPager = v.findViewById(R.id.home_viewpager_layout);
 //        Log.e(TAG, "SectionPageAdapter = " + adapter );
         viewPager.setAdapter(adapter);
 
-        TabLayout tabLayout = v.findViewById(R.id.tabs);
+        TabLayout tabLayout = v.findViewById(R.id.home_tabs);
         tabLayout.setupWithViewPager(viewPager);
 
         tabLayout.getTabAt(0).setIcon(R.drawable.ic_filter);
