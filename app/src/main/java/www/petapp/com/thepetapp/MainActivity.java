@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements FeaturedFragment.
     private void loadFragment(Fragment fragment) {
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction()
-                .replace(R.id.container, fragment);
+                .replace(R.id.fragment_container, fragment);
         fragmentTransaction.commit();
 
     }
