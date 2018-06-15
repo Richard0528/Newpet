@@ -5,14 +5,15 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import www.petapp.com.thepetapp.model.SectionPageAdapter;
+
 
 /**
- * A simple {@link Fragment} subclass.
+ * Home Fragment, the first page when open the app.
  */
 public class HomeFragment extends Fragment {
 
@@ -33,16 +34,17 @@ public class HomeFragment extends Fragment {
 
 
     private void setupViewPager(View v) {
-        SectionPageAdapter adapter = new SectionPageAdapter(getActivity().getSupportFragmentManager());
+        //change to get child fragment manager
+        SectionPageAdapter adapter = new SectionPageAdapter(getChildFragmentManager());
 
 //        Log.e(TAG, "Support manager = " + getActivity().getSupportFragmentManager());
         adapter.addFragment(new ExploredFragment());
         adapter.addFragment(new FeaturedFragment());
-        ViewPager viewPager = v.findViewById(R.id.viewpager_layout);
+        ViewPager viewPager = v.findViewById(R.id.home_viewpager_layout);
 //        Log.e(TAG, "SectionPageAdapter = " + adapter );
         viewPager.setAdapter(adapter);
 
-        TabLayout tabLayout = v.findViewById(R.id.tabs);
+        TabLayout tabLayout = v.findViewById(R.id.home_tabs);
         tabLayout.setupWithViewPager(viewPager);
 
         tabLayout.getTabAt(0).setIcon(R.drawable.ic_filter);

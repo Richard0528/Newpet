@@ -7,7 +7,6 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 
@@ -49,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements FeaturedFragment.
 
         mTextMessage = (TextView) findViewById(R.id.message);
 
-        BottomNavigationView navigation = findViewById(R.id.navigation);
+        BottomNavigationView navigation = findViewById(R.id.main_bottom_navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         loadFragment(new HomeFragment());
     }
@@ -62,8 +61,7 @@ public class MainActivity extends AppCompatActivity implements FeaturedFragment.
     private void loadFragment(Fragment fragment) {
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction()
-                .replace(R.id.container, fragment);
-
+                .replace(R.id.fragment_container, fragment);
         fragmentTransaction.commit();
 
     }
