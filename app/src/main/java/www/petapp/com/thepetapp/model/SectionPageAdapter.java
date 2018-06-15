@@ -7,12 +7,16 @@ import android.support.v4.app.FragmentPagerAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * SectionPageAdapter is a FragmentPagerAdapter that holds all the fragments in HomeFragment.
+ */
 public class SectionPageAdapter extends FragmentPagerAdapter {
 
-    private final List<Fragment> mFragmentList = new ArrayList<>();
+    private final List<Fragment> mFragmentList;
 
     public SectionPageAdapter(FragmentManager fm) {
         super(fm);
+        mFragmentList = new ArrayList<>();
     }
 
     @Override
