@@ -1,4 +1,4 @@
-package www.petapp.com.thepetapp;
+package www.petapp.com.thepetapp.model;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

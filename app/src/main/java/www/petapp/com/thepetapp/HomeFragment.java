@@ -9,9 +9,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import www.petapp.com.thepetapp.model.SectionPageAdapter;
+
 
 /**
- * Home Fragment that include Explor
+ * Home Fragment, the first page when open the app.
  */
 public class HomeFragment extends Fragment {
 
