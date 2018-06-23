@@ -8,8 +8,19 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="explored_fragment">Welcome to explored fragment</string>
+    <!-- Explored fragment -->
+    <string name="explored_new_pets">New Pets</string>
+    <string name="explored_top_breeder">Top Breeders</string>
+
     <string name="featured_fragment">Welcome to featured fragment</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <integer-array name="img_id_arr">
+        <item>@drawable/images_1</item>
+        <item>@drawable/images_2</item>
+        <item>@drawable/images_3</item>
+        <item>@drawable/images_4</item>
+    </integer-array>
 </resources>
