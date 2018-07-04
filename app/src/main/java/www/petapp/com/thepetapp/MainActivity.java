@@ -10,6 +10,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
+
 public class MainActivity extends AppCompatActivity implements FeaturedFragment.OnFragmentInteractionListener {
 
     private TextView mTextMessage;
@@ -48,7 +50,13 @@ public class MainActivity extends AppCompatActivity implements FeaturedFragment.
 
         mTextMessage = (TextView) findViewById(R.id.message);
 
-        BottomNavigationView navigation = findViewById(R.id.main_bottom_navigation);
+//        BottomNavigationView navigation = findViewById(R.id.main_bottom_navigation);
+        BottomNavigationViewEx navigation = (BottomNavigationViewEx) findViewById(R.id.main_bottom_navigation);
+        navigation.enableAnimation(false);
+        navigation.enableShiftingMode(false);
+        navigation.enableItemShiftingMode(false);
+        navigation.setTextSize(10);
+
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         loadFragment(new HomeFragment());
     }
