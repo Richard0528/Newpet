@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
-public class MainActivity extends AppCompatActivity implements FeaturedFragment.OnFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity implements ExploredFragment.OnFragmentInteractionListener {
 
     private TextView mTextMessage;
     private static final String TAG = "MainActivity";
@@ -56,6 +56,9 @@ public class MainActivity extends AppCompatActivity implements FeaturedFragment.
         navigation.enableShiftingMode(false);
         navigation.enableItemShiftingMode(false);
         navigation.setTextSize(10);
+        navigation.setIconSize(18,18);
+        navigation.setItemHeight(BottomNavigationViewEx.dp2px(this,50));
+        navigation.setIconsMarginTop(BottomNavigationViewEx.dp2px(this, 10));
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         loadFragment(new HomeFragment());

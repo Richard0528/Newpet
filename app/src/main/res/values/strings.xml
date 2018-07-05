@@ -9,10 +9,13 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="explored_fragment">Welcome to explored fragment</string>
     <!-- Explored fragment -->
-    <string name="explored_new_pets">New Pets</string>
-    <string name="explored_top_breeder">Top Breeders</string>
+    <string name="explored_text">Explored</string>
 
     <string name="featured_fragment">Welcome to featured fragment</string>
+    <!-- Featured fragment -->
+    <string name="featured_text">Featured</string>
+    <string name="featured_new_pets">New Pets</string>
+    <string name="featured_top_breeder">Top Breeders</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

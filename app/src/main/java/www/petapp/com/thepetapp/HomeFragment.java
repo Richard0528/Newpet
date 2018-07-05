@@ -38,8 +38,8 @@ public class HomeFragment extends Fragment {
         SectionPageAdapter adapter = new SectionPageAdapter(getChildFragmentManager());
 
 //        Log.e(TAG, "Support manager = " + getActivity().getSupportFragmentManager());
-        adapter.addFragment(new ExploredFragment());
         adapter.addFragment(new FeaturedFragment());
+        adapter.addFragment(new ExploredFragment());
         ViewPager viewPager = v.findViewById(R.id.home_viewpager_layout);
 //        Log.e(TAG, "SectionPageAdapter = " + adapter );
         viewPager.setAdapter(adapter);
@@ -47,8 +47,8 @@ public class HomeFragment extends Fragment {
         TabLayout tabLayout = v.findViewById(R.id.home_tabs);
         tabLayout.setupWithViewPager(viewPager);
 
-        tabLayout.getTabAt(0).setIcon(R.drawable.ic_filter);
-        tabLayout.getTabAt(1).setIcon(R.drawable.ic_search);
+        tabLayout.getTabAt(0).setText(R.string.featured_text);
+        tabLayout.getTabAt(1).setText(R.string.explored_text);
     }
 
 
