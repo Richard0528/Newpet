@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
-public class MainActivity extends AppCompatActivity implements ExploredFragment.OnFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity implements FeaturedFragment.OnFragmentInteractionListener {
 
     private TextView mTextMessage;
     private static final String TAG = "MainActivity";
