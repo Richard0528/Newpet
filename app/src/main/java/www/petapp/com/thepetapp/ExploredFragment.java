@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,8 +14,10 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
+import www.petapp.com.thepetapp.model.HomeCardRecycleViewAdapter;
 import www.petapp.com.thepetapp.model.HomeRecycleViewAdapter;
 import www.petapp.com.thepetapp.model.ImageSliderAdapter;
+import www.petapp.com.thepetapp.model.PetCardItem;
 
 
 /**
@@ -24,11 +27,14 @@ public class ExploredFragment extends Fragment {
 
     private ViewPager viewPager;
     private RecyclerView mTopBreederRecyclerView;
+    private RecyclerView mExploredPetsRecycleView;
     private ArrayList<Integer> mNewPetsImages;
     private ArrayList<Integer> mTopBreederImages;
     private ArrayList<String> mTopBreederTexts;
+    private ArrayList<PetCardItem> mExploredPetList;
     private ImageSliderAdapter imageSliderAdapter;
     private HomeRecycleViewAdapter homeRecycleViewAdapter;
+    private HomeCardRecycleViewAdapter homeCardRecycleViewAdapter;
 
     public ExploredFragment() {
         // Required empty public constructor
@@ -74,6 +80,20 @@ public class ExploredFragment extends Fragment {
 
         homeRecycleViewAdapter = new HomeRecycleViewAdapter(mTopBreederImages, mTopBreederTexts);
         mTopBreederRecyclerView.setAdapter(homeRecycleViewAdapter);
+
+        // pets published
+        mExploredPetList = new ArrayList<>();
+        mExploredPetList.add(new PetCardItem("@drawable/images_1", "First pet image"));
+        mExploredPetList.add(new PetCardItem("@drawable/images_2", "Second pet image"));
+        mExploredPetList.add(new PetCardItem("@drawable/images_3", "Third pet image"));
+        mExploredPetList.add(new PetCardItem("@drawable/images_4", "Forth pet image"));
+
+        mExploredPetsRecycleView = view.findViewById(R.id.explored_pets_recycleview);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
+        mExploredPetsRecycleView.setLayoutManager(gridLayoutManager);
+
+        homeCardRecycleViewAdapter = new HomeCardRecycleViewAdapter(mExploredPetList);
+        mExploredPetsRecycleView.setAdapter(homeCardRecycleViewAdapter);
 
         return view;
     }
