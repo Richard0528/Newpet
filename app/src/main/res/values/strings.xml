@@ -6,19 +6,17 @@
     <string name="title_message">Message</string>
     <string name="title_profile">Profile</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
+    <!-- Explored fragment -->
     <string name="explored_fragment">Welcome to explored fragment</string>
-    <!-- Featured fragment -->
     <string name="explored_text">Explored</string>
     <string name="explored_new_pets">New Pets</string>
     <string name="explored_top_breeder">Top Breeders</string>
 
 
-    <string name="featured_fragment">Welcome to featured fragment</string>
     <!-- featured fragment -->
+    <string name="featured_fragment">Welcome to featured fragment</string>
     <string name="featured_text">Featured</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <integer-array name="img_id_arr">

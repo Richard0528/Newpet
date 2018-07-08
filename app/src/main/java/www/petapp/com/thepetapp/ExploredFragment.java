@@ -15,9 +15,9 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 
 import www.petapp.com.thepetapp.model.HomeCardRecycleViewAdapter;
-import www.petapp.com.thepetapp.model.HomeRecycleViewAdapter;
 import www.petapp.com.thepetapp.model.ImageSliderAdapter;
 import www.petapp.com.thepetapp.model.PetCardItem;
+import www.petapp.com.thepetapp.model.TopBreederRecycleViewAdapter;
 
 
 /**
@@ -30,11 +30,15 @@ public class ExploredFragment extends Fragment {
     private RecyclerView mTopBreederRecyclerView;
     private RecyclerView mExploredPetsRecycleView;
     private ArrayList<Integer> mNewPetsImages;
+
     private ArrayList<Integer> mTopBreederImages;
     private ArrayList<String> mTopBreederTexts;
+    private ArrayList<PetCardItem> mTopBreederList;
+
     private ArrayList<PetCardItem> mExploredPetList;
+
     private ImageSliderAdapter imageSliderAdapter;
-    private HomeRecycleViewAdapter homeRecycleViewAdapter;
+    private TopBreederRecycleViewAdapter homeTopBreederRecycleViewAdapter;
     private HomeCardRecycleViewAdapter homeCardRecycleViewAdapter;
 
     public ExploredFragment() {
@@ -77,24 +81,30 @@ public class ExploredFragment extends Fragment {
         tabLayout.setupWithViewPager(viewPager, true);
 
         // Top breeder recyclerview
-        mTopBreederImages = new ArrayList<>();
-        mTopBreederImages.add(R.drawable.images_1);
-        mTopBreederImages.add(R.drawable.images_2);
-        mTopBreederImages.add(R.drawable.images_3);
-        mTopBreederImages.add(R.drawable.images_4);
+//        mTopBreederImages = new ArrayList<>();
+//        mTopBreederImages.add(R.drawable.images_1);
+//        mTopBreederImages.add(R.drawable.images_2);
+//        mTopBreederImages.add(R.drawable.images_3);
+//        mTopBreederImages.add(R.drawable.images_4);
+//
+//        mTopBreederTexts = new ArrayList<>();
+//        mTopBreederTexts.add("111111111111111");
+//        mTopBreederTexts.add("222222222222222");
+//        mTopBreederTexts.add("333333333333333");
+//        mTopBreederTexts.add("444444444444444");
 
-        mTopBreederTexts = new ArrayList<>();
-        mTopBreederTexts.add("111111111111111");
-        mTopBreederTexts.add("222222222222222");
-        mTopBreederTexts.add("333333333333333");
-        mTopBreederTexts.add("444444444444444");
+        mTopBreederList = new ArrayList<>();
+        mTopBreederList.add(new PetCardItem(R.drawable.images_1, "First pet image"));
+        mTopBreederList.add(new PetCardItem(R.drawable.images_2, "Second pet image"));
+        mTopBreederList.add(new PetCardItem(R.drawable.images_3, "Third pet image"));
+        mTopBreederList.add(new PetCardItem(R.drawable.images_4, "Forth pet image"));
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),
                 LinearLayoutManager.HORIZONTAL, false);
         mTopBreederRecyclerView.setLayoutManager(linearLayoutManager);
 
-        homeRecycleViewAdapter = new HomeRecycleViewAdapter(mTopBreederImages, mTopBreederTexts);
-        mTopBreederRecyclerView.setAdapter(homeRecycleViewAdapter);
+        homeTopBreederRecycleViewAdapter = new TopBreederRecycleViewAdapter(mTopBreederList);
+        mTopBreederRecyclerView.setAdapter(homeTopBreederRecycleViewAdapter);
 
         // pets published
         mExploredPetList = new ArrayList<>();

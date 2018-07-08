@@ -49,7 +49,7 @@ public class HomeCardRecycleViewAdapter extends RecyclerView.Adapter<HomeCardRec
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.mImageURL.setImageResource(petCards.get(position).getImageURL());
         holder.mDescription.setText(petCards.get(position).getDescription());
-        Log.d("Card info", "Description: " + petCards.get(position).getDescription());
+//        Log.d("Card info", "Description: " + petCards.get(position).getDescription());
     }
 
 
