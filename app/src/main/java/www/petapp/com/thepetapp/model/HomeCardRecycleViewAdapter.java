@@ -2,9 +2,12 @@ package www.petapp.com.thepetapp.model;
 
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,10 +21,14 @@ public class HomeCardRecycleViewAdapter extends RecyclerView.Adapter<HomeCardRec
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         private CardView mCardView;
+        private ImageView mImageURL;
+        private TextView mDescription;
 
         public ViewHolder(View itemView) {
             super(itemView);
             mCardView = (CardView) itemView.findViewById(R.id.home_recycleview_card);
+            mImageURL = itemView.findViewById(R.id.cardImage);
+            mDescription = itemView.findViewById(R.id.cardDescription);
         }
     }
 
@@ -40,7 +47,9 @@ public class HomeCardRecycleViewAdapter extends RecyclerView.Adapter<HomeCardRec
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.mCardView.setTag(petCards.get(position));
+        holder.mImageURL.setImageResource(petCards.get(position).getImageURL());
+        holder.mDescription.setText(petCards.get(position).getDescription());
+        Log.d("Card info", "Description: " + petCards.get(position).getDescription());
     }
 
 
@@ -49,5 +58,9 @@ public class HomeCardRecycleViewAdapter extends RecyclerView.Adapter<HomeCardRec
         return petCards.size();
     }
 
+    @Override
+    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+        super.onAttachedToRecyclerView(recyclerView);
+    }
 
 }

@@ -26,6 +26,7 @@ import www.petapp.com.thepetapp.model.PetCardItem;
 public class ExploredFragment extends Fragment {
 
     private ViewPager viewPager;
+    private TabLayout tabLayout;
     private RecyclerView mTopBreederRecyclerView;
     private RecyclerView mExploredPetsRecycleView;
     private ArrayList<Integer> mNewPetsImages;
@@ -46,19 +47,34 @@ public class ExploredFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_explored, container, false);
 
+        viewPager = (ViewPager)view.findViewById(R.id.new_pets_pager);
+        tabLayout = (TabLayout) view.findViewById(R.id.tabDots);
+
+        // Top breeder recyclerview
+
+        mTopBreederRecyclerView = view.findViewById(R.id.top_breeder_recycleview);
+
+        // pets published
+
+        mExploredPetsRecycleView = view.findViewById(R.id.explored_pets_recycleview);
+
+        return view;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
         mNewPetsImages = new ArrayList<>();
         mNewPetsImages.add(R.drawable.images_1);
         mNewPetsImages.add(R.drawable.images_2);
         mNewPetsImages.add(R.drawable.images_3);
         mNewPetsImages.add(R.drawable.images_4);
 
-        viewPager = (ViewPager)view.findViewById(R.id.new_pets_pager);
-        TabLayout tabLayout = view.findViewById(R.id.tabDots);
         imageSliderAdapter = new ImageSliderAdapter(getContext(), mNewPetsImages);
 
         viewPager.setAdapter(imageSliderAdapter);
         tabLayout.setupWithViewPager(viewPager, true);
-
 
         // Top breeder recyclerview
         mTopBreederImages = new ArrayList<>();
@@ -73,7 +89,6 @@ public class ExploredFragment extends Fragment {
         mTopBreederTexts.add("333333333333333");
         mTopBreederTexts.add("444444444444444");
 
-        mTopBreederRecyclerView = view.findViewById(R.id.top_breeder_recycleview);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),
                 LinearLayoutManager.HORIZONTAL, false);
         mTopBreederRecyclerView.setLayoutManager(linearLayoutManager);
@@ -83,19 +98,19 @@ public class ExploredFragment extends Fragment {
 
         // pets published
         mExploredPetList = new ArrayList<>();
-        mExploredPetList.add(new PetCardItem("@drawable/images_1", "First pet image"));
-        mExploredPetList.add(new PetCardItem("@drawable/images_2", "Second pet image"));
-        mExploredPetList.add(new PetCardItem("@drawable/images_3", "Third pet image"));
-        mExploredPetList.add(new PetCardItem("@drawable/images_4", "Forth pet image"));
+        mExploredPetList.add(new PetCardItem(R.drawable.images_1, "First pet image"));
+        mExploredPetList.add(new PetCardItem(R.drawable.images_2, "Second pet image"));
+        mExploredPetList.add(new PetCardItem(R.drawable.images_3, "Third pet image"));
+        mExploredPetList.add(new PetCardItem(R.drawable.images_4, "Forth pet image"));
 
-        mExploredPetsRecycleView = view.findViewById(R.id.explored_pets_recycleview);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
         mExploredPetsRecycleView.setLayoutManager(gridLayoutManager);
+
+        mExploredPetsRecycleView.setNestedScrollingEnabled(false);
 
         homeCardRecycleViewAdapter = new HomeCardRecycleViewAdapter(mExploredPetList);
         mExploredPetsRecycleView.setAdapter(homeCardRecycleViewAdapter);
 
-        return view;
     }
 
 }

@@ -2,19 +2,19 @@ package www.petapp.com.thepetapp.model;
 
 public class PetCardItem {
 
-    private String imageURL;
+    private int imageURL;
     private String description;
 
-    public PetCardItem(String imageURL, String description) {
+    public PetCardItem(int imageURL, String description) {
         this.imageURL = imageURL;
         this.description = description;
     }
 
-    public String getImageURL() {
+    public int getImageURL() {
         return imageURL;
     }
 
-    public void setImageURL(String imageURL) {
+    public void setImageURL(int imageURL) {
         this.imageURL = imageURL;
     }
 
