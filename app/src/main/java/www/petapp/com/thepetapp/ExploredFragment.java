@@ -81,17 +81,6 @@ public class ExploredFragment extends Fragment {
         tabLayout.setupWithViewPager(viewPager, true);
 
         // Top breeder recyclerview
-//        mTopBreederImages = new ArrayList<>();
-//        mTopBreederImages.add(R.drawable.images_1);
-//        mTopBreederImages.add(R.drawable.images_2);
-//        mTopBreederImages.add(R.drawable.images_3);
-//        mTopBreederImages.add(R.drawable.images_4);
-//
-//        mTopBreederTexts = new ArrayList<>();
-//        mTopBreederTexts.add("111111111111111");
-//        mTopBreederTexts.add("222222222222222");
-//        mTopBreederTexts.add("333333333333333");
-//        mTopBreederTexts.add("444444444444444");
 
         mTopBreederList = new ArrayList<>();
         mTopBreederList.add(new PetCardItem(R.drawable.images_1, "First pet image"));
