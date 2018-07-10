@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity implements FeaturedFragment.
     private TextView mTextMessage;
     private static final String TAG = "MainActivity";
 
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+    private BottomNavigationViewEx.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
         @Override
@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements FeaturedFragment.
     private void loadFragment(Fragment fragment) {
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, fragment);
+                .replace(R.id.fragment_container, fragment, fragment.getTag());
         fragmentTransaction.commit();
 
     }
