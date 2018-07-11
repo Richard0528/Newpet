@@ -43,7 +43,6 @@ public class ExploredFragment extends Fragment {
 
     public ExploredFragment() {
         // Required empty public constructor
-
     }
 
     @Override
@@ -52,7 +51,7 @@ public class ExploredFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_explored, container, false);
 
         viewPager = (ViewPager)view.findViewById(R.id.new_pets_pager);
-        tabLayout = (TabLayout) view.findViewById(R.id.tabDots);
+        tabLayout = (TabLayout)view.findViewById(R.id.tabDots);
 
         // Top breeder recyclerview
 

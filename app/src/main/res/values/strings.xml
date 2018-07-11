@@ -16,6 +16,7 @@
     <!-- featured fragment -->
     <string name="featured_fragment">Welcome to featured fragment</string>
     <string name="featured_text">Featured</string>
+    <string name="featured_pet_news">Pet news</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
