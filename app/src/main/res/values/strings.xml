@@ -1,4 +1,9 @@
 <resources>
+
+    <!-- Database nodes -->
+    <string name="node_users">users</string>
+
+
     <string name="app_name">ThePetApp</string>
     <string name="title_home">Home</string>
     <string name="title_favor">Favor</string>
@@ -19,6 +24,10 @@
     <string name="featured_pet_news">Pet news</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <!-- featured fragment -->
+    <string name="profile_fragment">Profile fragment</string>
 
     <integer-array name="img_id_arr">
         <item>@drawable/images_1</item>

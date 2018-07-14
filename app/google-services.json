@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "945488532647-pvqnbrjseb7ucv3f9mk69od8lkkcb1uc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "www.petapp.com.thepetapp",
+            "certificate_hash": "5a2d8ef1743fe216104c4ad1130d66ea9f83083a"
+          }
+        },
+        {
           "client_id": "945488532647-qsi6jqt6v4fev7mr6nrbqvcvvk7igaqf.apps.googleusercontent.com",
           "client_type": 3
         }

@@ -44,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText mEmail;
     private EditText mPassword;
     private Button mLogin;
-    private TextView mRegister;
+//    private TextView mRegister;
     private ProgressBar mProgressBar;
 
     @Override
@@ -56,8 +56,8 @@ public class LoginActivity extends AppCompatActivity {
         mLogo = findViewById(R.id.logo);
         mEmail = findViewById(R.id.input_email);
         mPassword = findViewById(R.id.input_password);
-        mLogin = (Button) findViewById(R.id.btn_login);
-        mRegister = findViewById(R.id.link_register);
+        mLogin = findViewById(R.id.btn_login);
+//        mRegister = findViewById(R.id.link_register);
 
 
         initProgressBar();
@@ -99,16 +99,16 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        mRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.d(TAG, "onClick: Navigating to Register Screen");
-
-                Intent intent = new Intent(LoginActivity.this, RegistrationActivity.class);
-
-                startActivity(intent);
-            }
-        });
+//        mRegister.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Log.d(TAG, "onClick: Navigating to Register Screen");
+//
+//                Intent intent = new Intent(LoginActivity.this, RegistrationActivity.class);
+//
+//                startActivity(intent);
+//            }
+//        });
 
     }
 
@@ -140,7 +140,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (user != null) {
 
                     //check if email is verified
-//                    if(user.isEmailVerified()){
+                    if(user.isEmailVerified()){
                         Log.d(TAG, "onAuthStateChanged: signed_in: " + user.getUid());
                         Toast.makeText(LoginActivity.this, "Authenticated with: " + user.getEmail(), Toast.LENGTH_SHORT).show();
 
@@ -148,19 +148,22 @@ public class LoginActivity extends AppCompatActivity {
 //                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 //                        startActivity(intent);
 //                        finish();
-//                        ProfileFragment profileFragment = new ProfileFragment();
-//                        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction()
-//                                .replace(R.id.fragment_container, profileFragment, profileFragment.getTag());
-//                        fragmentTransaction.commit();
-
-                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                        startActivity(intent);
                         finish();
+                        ProfileFragment profileFragment = new ProfileFragment();
+                        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.login_activity, profileFragment, profileFragment.getTag());
+//                        fragmentTransaction.detach(profileFragment).attach(profileFragment).commit();
+                        fragmentTransaction.commit();
 
-//                    }else{
-//                        Toast.makeText(LoginActivity.this, "Email is not Verified\nCheck your Inbox", Toast.LENGTH_SHORT).show();
-//                        FirebaseAuth.getInstance().signOut();
-//                    }
+//                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+//                        intent.putExtra("toOpen", "ProfileFragment");
+//                        startActivity(intent);
+
+
+                    }else{
+                        Toast.makeText(LoginActivity.this, "Email is not Verified\nCheck your Inbox", Toast.LENGTH_SHORT).show();
+                        FirebaseAuth.getInstance().signOut();
+                    }
 
                 } else {
                     // User is signed out
