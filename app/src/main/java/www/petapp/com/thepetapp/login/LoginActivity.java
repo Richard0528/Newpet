@@ -148,16 +148,20 @@ public class LoginActivity extends AppCompatActivity {
 //                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 //                        startActivity(intent);
 //                        finish();
-                        finish();
-                        ProfileFragment profileFragment = new ProfileFragment();
-                        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.login_activity, profileFragment, profileFragment.getTag());
-//                        fragmentTransaction.detach(profileFragment).attach(profileFragment).commit();
-                        fragmentTransaction.commit();
+//                        finish();
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        intent.putExtra("toOpen", "ProfileFragment");
+                        startActivity(intent);
 
-//                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-//                        intent.putExtra("toOpen", "ProfileFragment");
-//                        startActivity(intent);
+//                        ProfileFragment profileFragment = new ProfileFragment();
+//                        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction()
+//                                .replace(R.id.login_activity, profileFragment, profileFragment.getTag());
+////                        fragmentTransaction.detach(profileFragment).attach(profileFragment).commit();
+//                        fragmentTransaction.commit();
+
+
+
+
 
 
                     }else{

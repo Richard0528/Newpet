@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity implements FeaturedFragment.
 
     private TextView mTextMessage;
     private static final String TAG = "MainActivity";
+    String toOpen = null;
 
     private BottomNavigationViewEx.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -50,6 +51,8 @@ public class MainActivity extends AppCompatActivity implements FeaturedFragment.
 
         mTextMessage = (TextView) findViewById(R.id.message);
 
+
+
 //        BottomNavigationView navigation = findViewById(R.id.main_bottom_navigation);
         BottomNavigationViewEx navigation = (BottomNavigationViewEx) findViewById(R.id.main_bottom_navigation);
         navigation.enableAnimation(false);
@@ -62,7 +65,15 @@ public class MainActivity extends AppCompatActivity implements FeaturedFragment.
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         loadFragment(new HomeFragment());
+
+//        toOpen = ;
+
+//        if (getIntent().getExtras().getString("toOpen") != null) {
+//            //toOpen = getIntent().getExtras().getString("toOpen");
+//            loadFragment(new ProfileFragment());
+//        }
     }
+
 
     @Override
     public void onFragmentInteraction(Uri uri) {

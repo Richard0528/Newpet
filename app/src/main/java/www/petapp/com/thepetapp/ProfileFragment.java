@@ -33,7 +33,7 @@ public class ProfileFragment extends Fragment {
 
     private static final String TAG = "ProfileFragment";
 
-    private final Fragment curr = this;
+    private Fragment curr = this;
 
     private Button mLogin;
     private Button mRegister;
