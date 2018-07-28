@@ -9,13 +9,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -23,10 +20,11 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import www.petapp.com.thepetapp.R;
 import www.petapp.com.thepetapp.model.User;
-
-import static android.text.TextUtils.isEmpty;
 
 public class RegistrationActivity extends AppCompatActivity {
 
@@ -185,11 +183,12 @@ public class RegistrationActivity extends AppCompatActivity {
                         Log.d(TAG, "registerNewEmail: onComplete: " + task.isSuccessful());
 
                         if (task.isSuccessful()){
+                            //add user details to firebase database
+                            addNewUser();
                             //send email verificaiton
                             sendVerificationEmail();
 
-                            //add user details to firebase database
-                            addNewUser();
+
                         }
                         if (!task.isSuccessful()) {
                             Toast.makeText(mContext, "Someone with that email already exists",
@@ -213,14 +212,17 @@ public class RegistrationActivity extends AppCompatActivity {
 
         Log.d(TAG, "addNewUser: Adding new User: \n user_id:" + userid);
         mUser.setName(name);
-        mUser.setUser_id(userid);
+        mUser.setUserId(userid);
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
 
-        //insert into users node
+//        insert into users node
         reference.child(getString(R.string.node_users))
                 .child(userid)
                 .setValue(mUser);
+
+        //nothing add to database
+        Log.e(TAG, String.valueOf(reference.child(getString(R.string.node_users))));
 
         mAuth.signOut();
         redirectLoginScreen();

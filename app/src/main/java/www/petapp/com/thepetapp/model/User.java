@@ -2,11 +2,11 @@ package www.petapp.com.thepetapp.model;
 
 public class User {
 
-    private String user_id;
+    private String userId;
     private String name;
 
-    public User(String user_id, String name) {
-        this.user_id = user_id;
+    public User(String userID, String name) {
+        this.userId = userID;
         this.name = name;
     }
 
@@ -14,12 +14,12 @@ public class User {
 
     }
 
-    public String getUser_id() {
-        return user_id;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setUser_id(String user_id) {
-        this.user_id = user_id;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getName() {
@@ -33,7 +33,7 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "user_id='" + user_id + '\'' +
+                "userId='" + userId + '\'' +
                 ", name='" + name + '\'' +
                 '}';
     }
