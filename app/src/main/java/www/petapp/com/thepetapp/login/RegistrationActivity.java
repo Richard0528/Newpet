@@ -25,10 +25,24 @@ import java.util.Map;
 
 import www.petapp.com.thepetapp.R;
 import www.petapp.com.thepetapp.model.User;
+import www.petapp.com.thepetapp.util.InputVerificationTool;
 
 public class RegistrationActivity extends AppCompatActivity {
 
-    private static final String TAG = "RegistrtationActivity";
+    private final String TAG = "RegistrtationActivity";
+    private final int MIN_LENGTH_PASSWORD = 6;
+    private final int MAX_LENGTH_PASSWORD = 20;
+    private final String USERNAME_EMPTY = "Username cannot be empty";
+    private final String USERNAME_TOO_SHORT = "Username is too short";
+    private final String FIRST_NAME_EMPTY = "First name cannot be empty";
+    private final String LAST_NAME_EMPTY = "Last name cannot be empty";
+    private final String PASSWORD_NOT_MATCH = "Passwords are not match";
+    private final String PASSWORD_TOO_SHORT = "Password is too short";
+    private final String EMAIL_INVALID = "Email address is invalid";
+    private final String INVALID_CHARACTER = "Invalid character contained";
+    private final String PASSWORD_TOO_SIMPLE = "Password is too simple";
+    private final String USERNAME_EXIST = "Username has already exist";
+    private final String EMAIL_EXIST = "Email has already registered";
 
     // for firebase
     private FirebaseAuth mAuth;
@@ -66,7 +80,6 @@ public class RegistrationActivity extends AppCompatActivity {
         initProgressBar();
         setupFirebaseAuth();
         init();
-
     }
 
     private void init() {
@@ -78,6 +91,11 @@ public class RegistrationActivity extends AppCompatActivity {
                 email = mEmail.getText().toString();
                 name = mName.getText().toString();
                 password = mPassword.getText().toString();
+
+                if (!InputVerificationTool.isEmail(email)) {
+                    mEmail.setError(EMAIL_INVALID);
+                }
+
 
                 if (checkInputs(email, name, password, mConfirmPassword.getText().toString())) {
                     if(doStringsMatch(password, mConfirmPassword.getText().toString())){
